@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "IoT Lab 3.1-3.2: temperature sensor + LCD I2C + FreeRTOS",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -130, "left": -60, "attrs": { "value": "150" } },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -200, "left": 230, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-led", "id": "ledG", "top": -110, "left": 130, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledR", "top": -110, "left": 175, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": -40, "left": 120, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": -40, "left": 165, "rotate": 90, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "pot1:VCC", "uno:5V", "red", [] ],
+    [ "pot1:GND", "uno:GND.2", "black", [] ],
+    [ "pot1:SIG", "uno:A0", "orange", [] ],
+    [ "lcd1:VCC", "uno:5V", "red", [] ],
+    [ "lcd1:GND", "uno:GND.3", "black", [] ],
+    [ "lcd1:SDA", "uno:A4", "blue", [] ],
+    [ "lcd1:SCL", "uno:A5", "purple", [] ],
+    [ "uno:6", "r1:2", "green", [] ],
+    [ "r1:1", "ledG:A", "green", [] ],
+    [ "uno:7", "r2:2", "orange", [] ],
+    [ "r2:1", "ledR:A", "orange", [] ],
+    [ "ledG:C", "uno:GND.1", "black", [] ],
+    [ "ledR:C", "uno:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

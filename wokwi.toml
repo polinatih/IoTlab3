@@ -1,0 +1,8 @@
+# Симулятор Wokwi для VS Code.
+# 1) PlatformIO: Build   2) F1 -> "Wokwi: Start Simulator"
+# В Wokwi нет детали TMP36, поэтому на A0 стоит потенциометр:
+# его напряжение программа считает как напряжение TMP36 (0.75 В = 25 °C, 0.80 В = 30 °C).
+[wokwi]
+version = 1
+firmware = '.pio/build/uno/firmware.hex'
+elf = '.pio/build/uno/firmware.elf'
